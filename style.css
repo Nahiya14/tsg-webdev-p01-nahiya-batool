@@ -339,3 +339,58 @@ body {
         flex-direction: column;
     }
 }
+
+/* Make sizing predictable */
+* {
+    box-sizing: border-box;
+}
+
+
+/* Desktop menu button */
+.menu-button {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+
+/* Mobile styles */
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 18px 20px;
+        position: relative;
+    }
+
+    .logo {
+        font-size: 22px;
+        white-space: nowrap;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+
+        position: absolute;
+        top: 100%;
+        left: 0;
+
+        width: 100%;
+        padding: 20px;
+
+        background-color: white;
+
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+}

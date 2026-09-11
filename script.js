@@ -68,8 +68,34 @@ form.addEventListener("submit", function (event) {
 
 const menuButton = document.getElementById("menu-button");
 const navLinks = document.getElementById("nav-links");
+const menuIcon = document.getElementById("menu-icon");
+
+const navItems = document.querySelectorAll(".nav-links a");
 
 
 menuButton.addEventListener("click", function () {
-    navLinks.classList.toggle("active");
+
+    const isOpen = navLinks.classList.toggle("active");
+
+    menuIcon.classList.toggle("fa-bars", !isOpen);
+    menuIcon.classList.toggle("fa-xmark", isOpen);
+
+    menuButton.setAttribute("aria-expanded", isOpen);
+
+});
+
+
+navItems.forEach(function (link) {
+
+    link.addEventListener("click", function () {
+
+        navLinks.classList.remove("active");
+
+        menuIcon.classList.add("fa-bars");
+        menuIcon.classList.remove("fa-xmark");
+
+        menuButton.setAttribute("aria-expanded", "false");
+
+    });
+
 });
